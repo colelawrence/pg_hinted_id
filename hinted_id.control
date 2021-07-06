@@ -1,0 +1,5 @@
+comment = 'hinted_id: Generate and parse two character prefix prefixed xid-format 12 byte orderable ids'
+default_version = '1.1'
+module_pathname = '$libdir/hinted_id'
+relocatable = false
+superuser = false

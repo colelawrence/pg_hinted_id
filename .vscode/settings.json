@@ -1,0 +1,7 @@
+{
+  "rust-analyzer.cargo.allFeatures": false,
+  "rust-analyzer.cargo.features": [
+    "pg13"
+  ],
+  "rust-analyzer.checkOnSave.enable": false
+}

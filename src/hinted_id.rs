@@ -1,4 +1,4 @@
-use ::xid::{self as xid_};
+use ::xid::{self as kazk_xid};
 use pgx::*;
 use serde::*;
 use std::ffi::CStr;
@@ -33,7 +33,7 @@ pub struct HintedID {
 fn generate_hinted_id(prefix: &str) -> HintedID {
     HintedID {
         prefix: prefix.into(),
-        xid: xid_::new().0,
+        xid: kazk_xid::new().0,
     }
 }
 
@@ -45,7 +45,7 @@ impl InOutFuncs for HintedID {
             .expect("hintedid expected to have an underscore _ between a prefix and an xid");
         HintedID {
             prefix: prefix.into(),
-            xid: xid_::Id::from_str(&xid_str)
+            xid: kazk_xid::Id::from_str(&xid_str)
                 .expect("hintedid had invalid XID component")
                 .0,
         }
@@ -54,6 +54,6 @@ impl InOutFuncs for HintedID {
     fn output(&self, buffer: &mut StringInfo) {
         buffer.push_str(&self.prefix);
         buffer.push('_');
-        buffer.push_str(&xid_::Id(self.xid).to_string());
+        buffer.push_str(&kazk_xid::Id(self.xid).to_string());
     }
 }

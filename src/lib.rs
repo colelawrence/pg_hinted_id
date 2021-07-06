@@ -4,6 +4,10 @@ mod hinted_id;
 
 pg_module_magic!();
 
+
+#[cfg(test)]
+mod xid_tests;
+
 #[cfg(test)]
 pub mod pg_test {
     pub fn setup(_options: Vec<&str>) {

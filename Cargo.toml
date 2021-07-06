@@ -19,6 +19,8 @@ pg_test = []
 [dependencies]
 pgx = {version = "0.1.21", default-features = false}
 pgx-macros = "0.1.21"
+serde = "1.0.126"
+smartstring = {version = "0.2.7", features = ["serde"]}
 xid = "1.0.0"
 
 [dev-dependencies]

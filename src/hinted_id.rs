@@ -41,7 +41,7 @@ impl InOutFuncs for HintedID {
     fn input(input: &CStr) -> Self {
         let input_str = input.to_str().expect("valid string");
         let (prefix, xid_str) = input_str
-            .split_once('_')
+            .rsplit_once('_')
             .expect("hintedid expected to have an underscore _ between a prefix and an xid");
         HintedID {
             prefix: prefix.into(),
